@@ -181,3 +181,71 @@
     ...
   });
   ```
+  
+- [3.6](#3.6) <a name='3.6'></a> plotOptions
+
+  ```js
+  //highcharts
+  Highcharts.chart($el, {  // $el 작성 형식 = 'container'  
+    plotOptions: {
+      series: {
+        dataLabels: { //데이터라벨 :: 범례추가
+          enabled:true, // 노출 비노출
+          y: -3,  // y축 position
+          style: {
+            fontWeight: 'normal' // 폰트 굵기
+          },
+          borderRadius: 2,  // 보더 radius
+          backgroundColor: 'rgba(255,255,255,0.7)', // 바탕 색상
+          borderWidth: 1,  // 보더 굵기
+          borderColor: '#ddd', // 보더 색상
+          formatter: function() { // 수정 룰 정하기
+            if (this.y === 0) {
+                return null;
+            } else {
+                return this.y.toLocaleString();
+            }  
+          }
+        },
+        states: { // columns 오버시 색연하게 만들기 항목 제거
+          hover: {
+            brightness: 0 // darken
+          }
+        }
+      }
+    },
+    
+    ...
+  });
+  ```
+  
+- [3.7](#3.7) <a name='3.7'></a> tooltip
+
+  ```js
+  //highcharts
+  Highcharts.chart($el, {  // $el 작성 형식 = 'container'  
+    tooltip: { 
+      borderWidth: 0,  // 보더 굵기
+      shadow: false,  // 그림자 노출 비노출
+      shared: true,  // 
+      backgroundColor: '#FFFFFF',  // 배경 색상
+      useHTML: true,  // useHTML 사용시 svg가 아닌 html로 생성
+      style:{
+        zIndex:'10',  // 태그 zindex
+        padding: 0  // 태그 padding
+      },
+      positioner: function (labelWidth, labelHeight, point) {
+        var newPlotX = point.plotX;
+        if(newPlotX < 60){
+          newPlotX = 30;
+          return {
+            x: newPlotX,
+            y: point.plotY - 60
+          };
+        }
+        return newPosition.call(this, labelWidth, labelHeight, point); },
+    },
+    
+    ...
+  });
+  ```
