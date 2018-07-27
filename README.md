@@ -249,3 +249,16 @@
     ...
   });
   ```
+  
+- [3.8](#3.8) <a name='3.8'></a> series
+
+  ```js
+  //highcharts
+  Highcharts.chart($el, {  // $el 작성 형식 = 'container'  
+     series: [{
+       data: [29.9, 216.4, 194.1, 95.6, 54.4]
+     }],
+    
+    ...
+  });
+  ```
