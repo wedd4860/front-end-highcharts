@@ -255,8 +255,11 @@
   ```js
   //highcharts
   Highcharts.chart($el, {  // $el 작성 형식 = 'container'  
-     series: [{
-       data: [29.9, 216.4, 194.1, 95.6, 54.4]
+     series: [{  // 시리즈의 값은 오브젝트를 뒤에 추가하여 여러가지의 값 입력가능
+        name: '값1',  //  값의 이름
+        yAxis: 0,  //  0번은 좌측 yAxis이며 1번은 우측 보조 yAcis이다
+        data: [29.9, 216.4, 194.1, 95.6, 54.4],  //  값 pie의 경우 다름
+        maxPointWidth: 50,  //  포인트 너비
      }],
     
     ...
